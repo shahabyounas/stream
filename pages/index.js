@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 import logo from '../public/logo.png'
 import landingImg from '../public/landing-img.png'
@@ -34,7 +35,12 @@ export default function Home() {
             <Image src={logo} alt="stream logo" />
           </div>
           <ul className="d-flex align-items-center">
-            {menus.reverse().map((menu, index) => <li className={styles.list} key={index.toString()}>{menu.name}</li>)}
+            {menus.reverse().map((menu, index) => <li className={styles.list} key={index.toString()}>
+              <Link href="/posts/post">
+                <a>{menu.name}</a>
+              </Link>
+            </li>
+            )}
           </ul>
         </nav>
 
